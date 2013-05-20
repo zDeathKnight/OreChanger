@@ -1,7 +1,7 @@
-package Knights.OreChanger.Client;
+package com.Knights.OreChanger.Client;
 
 
-import Knights.OreChanger.Common.CommonProxy;
+import com.Knights.OreChanger.Common.CommonProxy;
 
 public class ClientProxy extends CommonProxy 
 {

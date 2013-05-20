@@ -1,4 +1,4 @@
-package Knights.OreChanger;
+package com.Knights.OreChanger;
 /*made by zDeathKnightz (minecraft.net) 
 AKA EmoKnight (minecraftforum.net)  
 AKA Mark Ian Cooper

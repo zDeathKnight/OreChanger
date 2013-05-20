@@ -1,4 +1,4 @@
-package Knights.OreChanger.Blocks;
+package com.Knights.OreChanger.Blocks;
 
 import net.minecraft.block.Block;
  

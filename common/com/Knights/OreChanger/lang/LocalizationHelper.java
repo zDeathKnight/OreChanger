@@ -1,4 +1,4 @@
-package Knights.OreChanger.lang;
+package com.Knights.OreChanger.lang;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

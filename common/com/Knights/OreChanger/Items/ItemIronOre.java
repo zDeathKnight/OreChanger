@@ -1,4 +1,4 @@
-package Knights.OreChanger.Items;
+package com.Knights.OreChanger.Items;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;

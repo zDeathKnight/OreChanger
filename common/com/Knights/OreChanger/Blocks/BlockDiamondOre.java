@@ -1,9 +1,10 @@
-package Knights.OreChanger.Blocks;
+package com.Knights.OreChanger.Blocks;
 
 import java.util.Random;
 
-import Knights.OreChanger.OreRateDrop;
-import Knights.OreChanger.OreChanger;
+import com.Knights.OreChanger.OreChanger;
+import com.Knights.OreChanger.OreRateDrop;
+
 
 import net.minecraft.block.BlockOre;
 

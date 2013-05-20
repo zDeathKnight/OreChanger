@@ -1,4 +1,4 @@
-package Knights.OreChanger;
+package com.Knights.OreChanger;
 
 import java.util.Random;
 

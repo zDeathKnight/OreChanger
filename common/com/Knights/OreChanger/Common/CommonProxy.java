@@ -1,4 +1,4 @@
-package Knights.OreChanger.Common;
+package com.Knights.OreChanger.Common;
 
 public class CommonProxy {
 

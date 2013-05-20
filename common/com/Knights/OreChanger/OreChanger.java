@@ -1,9 +1,10 @@
 
-package Knights.OreChanger;
-import Knights.OreChanger.Blocks.*;
-import Knights.OreChanger.Common.CommonProxy;
-import Knights.OreChanger.Items.*;
-import Knights.OreChanger.lang.LocailzationHandler;
+package com.Knights.OreChanger;
+import com.Knights.OreChanger.Blocks.*;
+import com.Knights.OreChanger.Common.CommonProxy;
+import com.Knights.OreChanger.Items.*;
+import com.Knights.OreChanger.lang.LocailzationHandler;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -29,7 +30,7 @@ public class OreChanger
 	@Instance
 	public static OreChanger instance = new OreChanger();
 	
-	@SidedProxy(clientSide = "Knights.OreChanger.Client.ClientProxy", serverSide = "Knights.OreChanger.Common.CommonProxy")
+	@SidedProxy(clientSide = Reference.clientSide, serverSide = Reference.serverSide)
 	public static CommonProxy porxy;
 	
    /* public mod_OreChanger()

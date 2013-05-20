@@ -1,6 +1,6 @@
-package Knights.OreChanger.lang;
+package com.Knights.OreChanger.lang;
 
-import Knights.OreChanger.Reference;
+import com.Knights.OreChanger.Reference;
 
 public class Localizations 
 {
