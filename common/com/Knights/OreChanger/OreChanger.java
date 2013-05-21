@@ -33,6 +33,8 @@ public class OreChanger
 	@SidedProxy(clientSide = Reference.clientSide, serverSide = Reference.serverSide)
 	public static CommonProxy porxy;
 	
+	// -- old load for modloader
+	
    /* public mod_OreChanger()
     {
 //   	ModChecker("OreChanger", 2, "http://dl.dropbox.com/u/37682543/checker/OreChanger.htm", "http://adf.ly/4hUgu", ModLoader.getMinecraftInstance());
@@ -58,7 +60,6 @@ public class OreChanger
     {
     	porxy.registerRenderThings();
     	Main();
-    	AddName();
     	AddSmelting();
     	BlocksOverride.init();
     	LocailzationHandler.load();
@@ -68,14 +69,6 @@ public class OreChanger
 	public static void postInit(FMLPostInitializationEvent event) {
 		FMLLog.info("[OreChanger] postInit");
 	}
-    
-   
-    public void AddName()
-    {
-    	//LanguageRegistry.addName(OreIron, "Iron Ore");
-    	//LanguageRegistry.addName(OreGold, "Gold Ore");
-    }
-    
     
     public void AddSmelting()
     {

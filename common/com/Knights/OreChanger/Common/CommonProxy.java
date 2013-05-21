@@ -7,4 +7,9 @@ public class CommonProxy {
 
 	}
 	
+	public String getMinecraftDir()
+	{
+		return "";
+	}
+	
 }

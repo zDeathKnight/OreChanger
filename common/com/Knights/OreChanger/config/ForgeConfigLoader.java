@@ -11,9 +11,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import net.minecraft.client.Minecraft;
+import com.Knights.OreChanger.OreChanger;
 
-public class ConfigLoader
+public class ForgeConfigLoader
 {
 final private String MOD_NAME; // Name of the mod
 final private String FILE_PATH; // Path of the config file
@@ -31,7 +31,7 @@ private boolean newFileCreated = false;
 * @param modName
 * @param filePath
 */
-public ConfigLoader(String modName, String id) 
+public ForgeConfigLoader(String modName, String id) 
 {
 	MOD_NAME = modName;
 	CONFIG_ID = id;
@@ -42,7 +42,7 @@ public ConfigLoader(String modName, String id)
 		FILE_PATH = "/config/" + MOD_NAME + "_" + CONFIG_ID + ".cfg";
 	}
 
-CONFIG_FILE = new File(Minecraft.getMinecraftDir() + FILE_PATH);
+CONFIG_FILE = new File(OreChanger.porxy.getMinecraftDir() + FILE_PATH);
 OUT = createPropertyFile();
 properties = new SortedProperties();
 }
