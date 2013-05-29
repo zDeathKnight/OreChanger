@@ -1,8 +1,20 @@
 
 package com.Knights.OreChanger;
-import com.Knights.OreChanger.Blocks.*;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.Configuration;
+
+import com.Knights.OreChanger.Blocks.BlocksOverride;
 import com.Knights.OreChanger.Common.CommonProxy;
-import com.Knights.OreChanger.Items.*;
+import com.Knights.OreChanger.Common.ConnectionHandler;
+import com.Knights.OreChanger.Common.PacketHandler;
+import com.Knights.OreChanger.Items.ItemGoldOre;
+import com.Knights.OreChanger.Items.ItemIronOre;
 import com.Knights.OreChanger.lang.LocailzationHandler;
 
 import cpw.mods.fml.common.FMLLog;
@@ -11,18 +23,15 @@ import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.SidedProxy;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.Configuration;
 
 @Mod(modid = Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
-@NetworkMod(clientSideRequired=true,serverSideRequired=false)
+@NetworkMod(clientSideRequired=true,serverSideRequired=false, channels={Reference.MOD_ID}, packetHandler= PacketHandler.class, connectionHandler=ConnectionHandler.class)
 
 
 public class OreChanger
@@ -42,6 +51,9 @@ public class OreChanger
     	//ReadModConfigFile();
     	//Main();
     }*/
+	public static boolean hasLatestVersion = true;
+	private String latestVersionId =null;
+	
     @PreInit
 	public void PreLoad(FMLPreInitializationEvent event) 
     {
@@ -51,14 +63,27 @@ public class OreChanger
 		config.load();
 		IronOreID = config.get("ItemID", "IronOreID", IronOreID).getInt();
 		GoldOreID = config.get("ItemID", "GoldOreID", GoldOreID).getInt();
-		ramdonDrops = config.get("Option", "ramdonDrops", ramdonDrops).isBooleanValue();
+		ramdonDrops = config.get("Setting", "ramdonDrops", ramdonDrops).isBooleanValue();
+		checkwebversion = config.get("Setting", "Check Web Version", checkwebversion).isBooleanValue();
 		config.save();
-    }
+		
+		try {
+			latestVersionId = getLatestVersionFromWeb();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(VersionCompare.compare( latestVersionId, Reference.VERSION ) > 0){	
+			hasLatestVersion = false;
+		}
+	}
+    
     
     @Init
 	public void load(FMLInitializationEvent event) 
     {
-    	porxy.registerRenderThings();
+    	//porxy.registerRenderThings();
+		//NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
     	Main();
     	AddSmelting();
     	BlocksOverride.init();
@@ -156,22 +181,40 @@ public class OreChanger
     public static Item OreIron;
 	public static Item OreGold;
 	public static boolean ramdonDrops = true;
+	public static boolean checkwebversion = true;
 	
 	public void Main()  
 	{
 		OreIron = new ItemIronOre(IronOreID -256).setUnlocalizedName("IronOre");
 		OreGold = new ItemGoldOre(GoldOreID -256).setUnlocalizedName("GoldOre");			
 	}
+	
 
-    
-	public static final String ModName()
-    {
-        return "OreChanger";
-    }
-	 public static final String ModVersion()
-	 {
-	     return "v2.3 for MC 1.5";
-	 }
+	private String getLatestVersionFromWeb() throws Exception 
+	{
+
+		URL versionIn = new URL("https://dl.dropboxusercontent.com/u/37682543/minecraft_mods/OreChanger/Version.txt");
+
+		/*
+		 * Changed by Konitor
+		 * Don't access the internet on servers or closed LANs.
+		 */
+		if(checkwebversion)
+		{
+
+	        BufferedReader in = new BufferedReader(
+	        new InputStreamReader(versionIn.openStream()));
+	        String inputLine = in.readLine();
+	        in.close();
+			return inputLine;
+		}
+		else
+		{
+			return Reference.VERSION;
+		}
+		
+	}
+	
 	/* private static void CheckConfig()
 	    {
 	    	if(Config < 3)
