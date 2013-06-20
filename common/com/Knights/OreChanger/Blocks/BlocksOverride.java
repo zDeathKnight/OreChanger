@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
  
 public class BlocksOverride {
 	
-	public static void init()
+	public static void load()
 	{
 		Block.blocksList[14] = null;
 		Block.blocksList[15] = null;

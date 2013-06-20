@@ -54,23 +54,28 @@ properties = new SortedProperties();
 *
 * @return Outputstream to the newly created config file.
 */
-private FileOutputStream createPropertyFile() {
-FileOutputStream out = null;
-try {
-newFileCreated = CONFIG_FILE.createNewFile();
+	private FileOutputStream createPropertyFile() 
+	{
+		FileOutputStream out = null;
+		try 
+		{
+			newFileCreated = CONFIG_FILE.createNewFile();
 
-/* Try to create file && update field */
-if (newFileCreated) {
-out = new FileOutputStream(CONFIG_FILE);
-System.out.println("> " + MOD_NAME + " - Creating new Config-file at " + FILE_PATH + ".");
-} else {
-System.out.println("> " + MOD_NAME + " - Config-File found at " + FILE_PATH + ".");
-}
-} catch (IOException e) {
-e.printStackTrace();
-}
-return out;
-}
+			/* Try to create file && update field */
+			if (newFileCreated) 
+			{
+				out = new FileOutputStream(CONFIG_FILE);
+				System.out.println("> " + MOD_NAME + " - Creating new Config-file at " + FILE_PATH + ".");
+			} else 
+			{
+				System.out.println("> " + MOD_NAME + " - Config-File found at " + FILE_PATH + ".");
+			}
+		} catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return out;
+	}
 
 /* ---------------------- WRITING METHODS --------------------------------- */
 /**

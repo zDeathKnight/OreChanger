@@ -13,7 +13,8 @@ import java.util.regex.Pattern;
  *  
  */
 
-public class VersionCompare {
+public class VersionCompare 
+{
 	
 	/**
 	 * Returns 0 if both values are the same

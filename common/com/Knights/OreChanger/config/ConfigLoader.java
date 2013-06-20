@@ -31,21 +31,23 @@ private boolean newFileCreated = false;
 * @param modName
 * @param filePath
 */
-public ConfigLoader(String modName, String id) 
-{
-	MOD_NAME = modName;
-	CONFIG_ID = id;
+	public ConfigLoader(String modName, String id) 
+	{
+			MOD_NAME = modName;
+			CONFIG_ID = id;
 
-	if (id.isEmpty()) {
-		FILE_PATH = "/config/" + MOD_NAME + ".cfg";
-	} else {
-		FILE_PATH = "/config/" + MOD_NAME + "_" + CONFIG_ID + ".cfg";
+			if (id.isEmpty()) 
+			{
+				FILE_PATH = "/config/" + MOD_NAME + ".cfg";
+			} else 
+			{
+				FILE_PATH = "/config/" + MOD_NAME + "_" + CONFIG_ID + ".cfg";
+			}
+
+		CONFIG_FILE = new File(Minecraft.getMinecraftDir() + FILE_PATH);
+		OUT = createPropertyFile();
+		properties = new SortedProperties();
 	}
-
-CONFIG_FILE = new File(Minecraft.getMinecraftDir() + FILE_PATH);
-OUT = createPropertyFile();
-properties = new SortedProperties();
-}
 
 /**
 * Tests if there already is a config file with the exact path determined in
@@ -259,7 +261,8 @@ return result;
 * @param key - The name of the property to read from the file.
 * @return Read property.
 */
-public float readFloat(String key) {
+public float readFloat(String key) 
+{
 FileInputStream in = null;
 float result = 0;
 

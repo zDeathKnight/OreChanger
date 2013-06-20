@@ -15,7 +15,7 @@ import com.Knights.OreChanger.Common.ConnectionHandler;
 import com.Knights.OreChanger.Common.PacketHandler;
 import com.Knights.OreChanger.Items.ItemGoldOre;
 import com.Knights.OreChanger.Items.ItemIronOre;
-import com.Knights.OreChanger.lang.LocailzationHandler;
+import com.Knights.OreChanger.lang.Localizations;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
@@ -86,8 +86,8 @@ public class OreChanger
 		//NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
     	Main();
     	AddSmelting();
-    	BlocksOverride.init();
-    	LocailzationHandler.load();
+    	BlocksOverride.load();
+    	Localizations.load();
     }
     
     @PostInit

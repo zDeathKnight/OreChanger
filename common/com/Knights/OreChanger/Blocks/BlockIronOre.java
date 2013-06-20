@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 
 public class BlockIronOre extends BlockOre
 {
-    public BlockIronOre(int par1)
+    public BlockIronOre(int id)
     {
-        super(par1);
+        super(id);
     }
 
     /**

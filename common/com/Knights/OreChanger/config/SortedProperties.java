@@ -24,16 +24,15 @@ public class SortedProperties extends Properties
 		return super.put(key, temp);
 	}
 
-/**
-* Sorts the properties in the list.
-*/
+	/**
+ 	* Sorts the properties in the list.
+	*/
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Enumeration keys() 
 	{
 		Enumeration unsortedKeys = super.keys();
 		Vector<String> sortedKeys = new Vector<String>();
-
 		/* Copy unsorted keys to vector */
 		while (unsortedKeys.hasMoreElements()) 
 		{

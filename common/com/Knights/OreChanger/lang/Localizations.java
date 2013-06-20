@@ -2,8 +2,33 @@ package com.Knights.OreChanger.lang;
 
 import com.Knights.OreChanger.Reference;
 
+import cpw.mods.fml.common.registry.LanguageRegistry;
+
 public class Localizations 
 {
+	public static void load()
+	{
+		for(String LocationFile :Localizations.localeFiles)
+		{
+			LanguageRegistry.instance().loadLocalization(LocationFile, getLocaleFromFileName(LocationFile), isXMLLanguageFile(LocationFile));
+		}
+	}
+	
+	public static boolean isXMLLanguageFile(String fileName)
+	{
+		return fileName.endsWith(".xml");
+	}
+
+	public static String getLocaleFromFileName(String fileName)
+	{
+		return fileName.substring(fileName.lastIndexOf("/")+1,fileName.lastIndexOf("."));
+	}
+
+	public static String letLocalizationString(String key)
+	{
+		return LanguageRegistry.instance().getStringLocalization(key);
+	}
+	
 	private static final String LANG_RESOURCE_LOCATION = "/mods/"+Reference.MOD_NAME+"/lang/";
 
 	public static String[] localeFiles = 
