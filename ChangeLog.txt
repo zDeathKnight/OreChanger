@@ -1,0 +1,70 @@
+v2.7:
+add support Forestry
+add support Thermal Expansion
+add update checker
+
+v2.6:
+updated to mod to minecraft 1.5.2
+
+v2.5:
+Limited drops to 4 from 5
+rewrite drop system
+fix SMP: server side
+
+v2.4:
+Tweet drops rate
+up date build mcp744 for MC1.5.1
+
+v2.3
+Rewrite the mod coding. which to fully move to Forge API
+add blockoverride - no more editing core code in Minecraft coding
+add ramdondrops to config to allow to disable ramdon drops from ores.
+
+v2.2:
+add support nether quartz  and Emerald ore
+Nerf ore rate-drops
+change iron ore ID 400 to 500
+change gold ore ID 401 to 501
+update to MC1.5
+
+v2.1:
+update to MC1.4.7
+disable autoupdate
+
+v2.0:
+change Lapis drop which was to high.. again
+update to MC1.2b
+
+v1.9:
+change Lapis drop which was to high
+update to mc1.1b
+
+v1.8:
+add AutoUpdate
+
+v1.7:
+fix ore drops because they are droping fking blocks.. thz no1 did not tell me this
+V1.6:
+update config file info
+
+v1.5:
+fixed config file making
+
+v1.4:
+change drop rate higher
+new texture
+move item ids up higher
+
+v1.3:
+add config to allows USERS to change items IDs
+
+v1.1 TO v1.2:
+redoing texture for the icons
+move ID higher for Brick mod v1.1.
+
+v0.1 to v1.0:
+clean coding up
+all ore drop random 1 to 4
+bug fixing ore drops (randomly drop 64 ores)
+update coding of drops
+update texture
